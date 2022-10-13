@@ -15,16 +15,16 @@ const serviceGetAll = async () => {
   };
 };
 
-const idService = async (id) =>  {
+const idService = async (id) => {
   const result = await productsModel.procuraIdModel(id);
    if (result) {
-     return { message: result  , status: statusCode.OK };
+     return { message: result, status: statusCode.OK };
   }
 
   return {
-    message:result, status: statusCode.notFound,
+    message: result, status: statusCode.notFound,
   };
-}
+};
 
 module.exports = {
   serviceGetAll,

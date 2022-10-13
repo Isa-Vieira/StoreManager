@@ -10,9 +10,9 @@ const modelGetAll = async () => {
 const procuraIdModel = async (id) => {
   const [[results]] = await connection.execute(
     'SELECT * FROM  StoreManager.products WHERE id= ?',
-    [id]
+    [id],
   );
-  console.log(results)
+  console.log(results);
   return results;
 };
 

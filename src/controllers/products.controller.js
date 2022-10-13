@@ -8,9 +8,10 @@ const controllerGetAll = async (_req, res) => {
 const idController = async (req, res) => {
   const { id } = req.params;
   const result = await productsService.idService(id);
-  const obj = result.message ? {id: Number(id), name: result.message.name} : {"message": "Product not found"}
+  const obj = result.message ? { id: Number(id), name: result.message.name }
+    : { message: 'Product not found' };
   res.status(result.status).json(obj);
-}
+};
 module.exports = {
   controllerGetAll,
   idController,
