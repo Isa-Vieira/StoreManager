@@ -16,12 +16,18 @@ const procuraIdModel = async (id) => {
   return results;
 };
 
-/* // Requisito 3
-const cadastraProdutosModel = async () => {
-  s
-}; */
+// Requisito 3 certo
+const insertProducts = async (product) => {
+  const [{ insertId }] = await connection.execute(
+    'INSERT INTO StoreManager.products (name) VALUE (?)',
+    [product.name],
+  );
+
+  return insertId;
+};
 
 module.exports = {
   modelGetAll,
   procuraIdModel,
+  insertProducts,
 };

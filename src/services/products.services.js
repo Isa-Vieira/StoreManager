@@ -26,7 +26,16 @@ const idService = async (id) => {
   };
 };
 
+// Requisito 3
+const createProductsService = async (name) => {
+  const newProductsId = await productsModel.insertProducts({ name });
+  const newProducts = await productsModel.procuraIdModel(newProductsId);
+
+  return newProducts;
+};
+
 module.exports = {
   serviceGetAll,
   idService,
+  createProductsService,
 };

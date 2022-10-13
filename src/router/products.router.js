@@ -8,6 +8,8 @@ productRouter.get('/', productController.controllerGetAll);
 
 productRouter.get('/:id', productController.idController);
 
+productRouter.post('/', productController.createProducts);
+
 module.exports = {
   productRouter,
 };
