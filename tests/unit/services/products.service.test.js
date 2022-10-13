@@ -13,11 +13,9 @@ describe('Teste Product Service', function () {
     it("Caso de sucesso, model retorna um array com todos os elementos", async function () {
       sinon.stub(productsModel, 'modelGetAll').resolves(mockProducts);
       const result = await productsService.serviceGetAll();
-
-      expect(result.message).to.be.a("array");
+      expect(result.message).to.be.a('array');
       expect(result.message).to.be.eq(mockProducts);
     });
-
     afterEach(() => {
       sinon.restore();
     });
