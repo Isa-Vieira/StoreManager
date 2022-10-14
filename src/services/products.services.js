@@ -34,8 +34,26 @@ const createProductsService = async (name) => {
   return newProducts;
 };
 
+// Requisito 10
+const atualizaProductsIdService = async (products) => {
+  const productsAtualizados = await productsModel.procuraIdModel(products);
+  const productsAtuais = await productsModel.atualizaProductsModel(productsAtualizados);
+
+  return productsAtuais;
+};
+
+// Requisito 12
+const deletaProductService = async (products) => {
+  const productsAtualizados = await productsModel.procuraIdModel(products);
+  const productDelete = await productsModel.deletaProductModel(productsAtualizados);
+
+  return productDelete;
+};
+
 module.exports = {
   serviceGetAll,
   idService,
   createProductsService,
+  atualizaProductsIdService,
+  deletaProductService,
 };

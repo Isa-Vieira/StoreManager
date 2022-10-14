@@ -26,8 +26,31 @@ const createProducts = async (req, res) => {
   return res.status(201).json(recebeNewProducts);
 };
 
+// Requisito 10
+const atualizaProductsId = async (req, res) => {
+  const { products } = req.body;
+  if (products === undefined) {
+    return res.status(404).json({ message: 'Product not found' });
+  }
+  if (products.id) {
+   return res.status(200).json({ });
+  }
+  const recebeNewProducts = await productsService.createProductsService(products.id);
+  return res.status(201).json(recebeNewProducts);
+};
+
+// Requisito 12
+const deletaProductController = async (req, res) => {
+  const { products } = req.body;
+  if (products === undefined) {
+    return res.status(404).json({ message: 'Product not found' });
+  }
+  return res.status(204);
+};
 module.exports = {
   controllerGetAll,
   idController,
   createProducts,
+  atualizaProductsId,
+  deletaProductController,
 };
