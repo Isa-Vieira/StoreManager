@@ -12,7 +12,7 @@ productRouter.post('/', productController.createProducts);
 
 productRouter.post('/:id', productController.atualizaProductsId);
 
-productRouter.delete('/:id', productController.deletaProductControlle);
+productRouter.delete('/:id', productController.deletaProductController);
 
 module.exports = {
   productRouter,

@@ -41,11 +41,12 @@ const atualizaProductsId = async (req, res) => {
 
 // Requisito 12
 const deletaProductController = async (req, res) => {
-  const { products } = req.body;
-  if (products === undefined) {
+  const { id } = req.params;
+  const pegaStatusEMessage = await productsService.deletaProductService(id);
+  if (pegaStatusEMessage.message) {
     return res.status(404).json({ message: 'Product not found' });
   }
-  return res.status(204);
+  return res.status(pegaStatusEMessage.status).end();
 };
 module.exports = {
   controllerGetAll,

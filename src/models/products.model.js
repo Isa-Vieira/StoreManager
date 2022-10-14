@@ -26,26 +26,27 @@ const insertProducts = async (product) => {
   return insertId;
 };
 
-// Requisito 10
+/* // Requisito 10
 const atualizaProductsModel = async (product) => {
   const { insertId } = await connection.execute(
-    'UPDATE products WHERE StoreManager.products AND id'
+    'UPDATE products WHERE StoreManager.products AND id',
     [product.id],
   );
-};
+}; */
 
 // Requisito 12 
 const deletaProductModel = async (product) => {
-  const { products } = await connection.execute(
-    'DELETE FROM StorageManager WHERE products'
+  const [results] = await connection.execute(
+    'DELETE FROM StoreManager.products WHERE id = ?',
   [product.id],
   );
+  return results;
 };
 
 module.exports = {
   modelGetAll,
   procuraIdModel,
   insertProducts,
-  atualizaProductsModel,
+  /* atualizaProductsModel, */
   deletaProductModel,
 };
