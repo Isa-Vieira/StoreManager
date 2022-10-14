@@ -4,8 +4,8 @@ const sinon = require("sinon");
 const sinonChai = require('sinon-chai');
 
 const { returnService } = require('../mock/products.mock');
-const productsService = require('../../../src/services/products.services');
-const productsController = require("../../../src/controllers/products.controller");
+const controllerGetAllSales = require('../../../src/controllers/sales.controller');
+const idControllerSales = require('../../../src/controllers/sales.controller');
 
 chai.use(sinonChai);
 
@@ -15,9 +15,9 @@ describe('Teste o controller das vendas', function () {
       const res = {};
       res.status = sinon.stub().returns(res);
       res.json = sinon.stub().returns();
-      sinon.stub(serviceSalesGetAll, 'serviceGetAllSale').resolves(returnService);
+      sinon.stub(controllerGetAllSales, 'serviceSalesGetAll').resolves(returnService);
 
-      await controllerGetAllSales.controllerGetAll({}, res);
+      await controllerGetAllSales.idControllerSales({}, res);
 
       expect(res.status).to.have.been.calledOnceWith(200);
     });

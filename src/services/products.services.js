@@ -34,13 +34,13 @@ const createProductsService = async (name) => {
   return newProducts;
 };
 
-// Requisito 10
+/* // Requisito 10
 const atualizaProductsIdService = async (products) => {
   const productsAtualizados = await productsModel.procuraIdModel(products);
   const productsAtuais = await productsModel.atualizaProductsModel(productsAtualizados);
 
   return productsAtuais;
-};
+}; */
 
 // Requisito 12
 const deletaProductService = async (products) => {
