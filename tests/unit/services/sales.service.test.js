@@ -1,4 +1,4 @@
-const { salesMock } = require("../mock/sales.mock");
+/* const { salesMock } = require("../mock/sales.mock");
 
 describe('Teste Sales Service', function () {
   describe('Listando sales', function () {
@@ -19,4 +19,4 @@ describe('Teste Sales Service', function () {
       expect(result).to.deep.equal({id:1, name: "2021-09-09T04:54:54.000Z"})
     });
   });
-});
+}); */

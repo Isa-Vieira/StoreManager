@@ -1,4 +1,4 @@
-const { expect } = require('chai');
+/* const { expect } = require('chai');
 const sinon = require('sinon');
 const { productsModel } = require('../../../src/models');
 const connection = require('../../../src/models/connection');
@@ -20,4 +20,4 @@ describe('Teste Model de sales', function () {
       sinon.restore();
     })
   });
-});
+}); */

@@ -28,7 +28,7 @@ const insertProducts = async (product) => {
 
 /* // Requisito 10
 const atualizaProductsModel = async (product) => {
-  const { insertId } = await connection.execute(
+  const { checkId } = await connection.execute(
     'UPDATE products WHERE StoreManager.products AND id',
     [product.id],
   );
