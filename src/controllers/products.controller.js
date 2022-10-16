@@ -28,16 +28,24 @@ const createProducts = async (req, res) => {
 
 // Requisito 10
 const atualizaProductsId = async (req, res) => {
-  const { products } = req.body;
-  if (products === undefined) {
-    return res.status(404).json({ message: 'Product not found' });
+  const { id } = req.params;
+  const { name } = req.body;
+   if (!name) {
+      return res.status(400).json({ message: '"name" is required' });
   }
-  if (products.id) {
-   return res.status(200).json({ });
+    if (name.length < 5) {
+      return res
+        .status(422)
+        .json({ message: '"name" length must be at least 5 characters long' });
   }
-  const recebeNewProducts = await productsService.createProductsService(products.id);
-  return res.status(201).json(recebeNewProducts);
-};
+  const objetoIdEName = { id, name };
+  const result = await productsService.atualizaProductsIdService(objetoIdEName);
+  
+  if (result.status === 404) {
+    return res.status(result.status).json({ message: 'Product not found' });
+  }
+   return res.status(result.status).json(result.message);
+  };
 
 // Requisito 12
 const deletaProductController = async (req, res) => {

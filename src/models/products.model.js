@@ -12,7 +12,6 @@ const procuraIdModel = async (id) => {
     'SELECT * FROM  StoreManager.products WHERE id= ?',
     [id],
   );
-  console.log(results);
   return results;
 };
 
@@ -26,13 +25,14 @@ const insertProducts = async (product) => {
   return insertId;
 };
 
-/* // Requisito 10
+// Requisito 10
 const atualizaProductsModel = async (product) => {
-  const { checkId } = await connection.execute(
-    'UPDATE products WHERE StoreManager.products AND id',
-    [product.id],
+  const [result] = await connection.execute(
+    'UPDATE StoreManager.products SET name = ? WHERE id = ?',
+    [product.name, product.id],
   );
-}; */
+  return result;
+};
 
 // Requisito 12 
 const deletaProductModel = async (product) => {
@@ -47,6 +47,6 @@ module.exports = {
   modelGetAll,
   procuraIdModel,
   insertProducts,
-  /* atualizaProductsModel, */
+  atualizaProductsModel,
   deletaProductModel,
 };

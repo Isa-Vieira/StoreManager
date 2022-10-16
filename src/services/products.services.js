@@ -34,13 +34,17 @@ const createProductsService = async (name) => {
   return newProducts;
 };
 
-/* // Requisito 10
-const atualizaProductsIdService = async (products) => {
-  const productsAtualizados = await productsModel.procuraIdModel(products);
-  const productsAtuais = await productsModel.atualizaProductsModel(productsAtualizados);
+// Requisito 10
+const atualizaProductsIdService = async (product) => {
+  const { id } = product;
 
-  return productsAtuais;
-}; */
+  const pegaId = await productsModel.procuraIdModel(id);
+  if (pegaId) {
+    await productsModel.atualizaProductsModel(product);
+    return { message: product, status: 200 };
+}
+  return { message: 'Product not found', status: 404 };
+};
 
 // Requisito 12
 const deletaProductService = async (products) => {
@@ -50,7 +54,6 @@ const deletaProductService = async (products) => {
      await productsModel.deletaProductModel(productsAtualizados);
     return { status: 204 };
   } 
-  console.log(productsAtualizados);
   return { status: 404, message: 'Product not found' };
 };
 
@@ -58,6 +61,6 @@ module.exports = {
   serviceGetAll,
   idService,
   createProductsService,
-  /* atualizaProductsIdService, */
+  atualizaProductsIdService,
   deletaProductService,
 };

@@ -1,10 +1,12 @@
-/* const { salesMock } = require("../mock/sales.mock");
+/* const { salesMock, mockDataSales } = require("../mock/sales.mock");
+
+const modelSalesGetAll = require('../../../src/models/sales.model');
+const idSalesService = require('../../../src/services/sales.services');
 
 describe('Teste Sales Service', function () {
   describe('Listando sales', function () {
-  
-    it("Caso de sucesso, model retorna um array com todos os elementos de sales", async function () {
-      sinon.stub(productsModel, 'modelGetAll').resolves(mockProducts);
+  it("Caso de sucesso, model retorna um array com todos os elementos de sales", async function () {
+      sinon.stub(modelSalesGetAll, 'modelSalesGetAll').resolves(salesMock);
       const result = await serviceSalesGetAll.modelSalesGetAll();
       expect(result.message).to.be.a('array');
       expect(result.message).to.be.eq(salesMock);
