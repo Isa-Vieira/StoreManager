@@ -16,12 +16,7 @@ const idController = async (req, res) => {
 // Requisito 3
 const createProducts = async (req, res) => {
   const { name } = req.body;
-  if (!name) {
-    return res.status(400).json({ message: '"name" is required' });
-  }
-  if (name.length < 5) {
-   return res.status(422).json({ message: '"name" length must be at least 5 characters long' });
-  }
+
   const recebeNewProducts = await productsService.createProductsService(name);
   return res.status(201).json(recebeNewProducts);
 };
@@ -30,14 +25,7 @@ const createProducts = async (req, res) => {
 const atualizaProductsId = async (req, res) => {
   const { id } = req.params;
   const { name } = req.body;
-   if (!name) {
-      return res.status(400).json({ message: '"name" is required' });
-  }
-    if (name.length < 5) {
-      return res
-        .status(422)
-        .json({ message: '"name" length must be at least 5 characters long' });
-  }
+  
   const objetoIdEName = { id, name };
   const result = await productsService.atualizaProductsIdService(objetoIdEName);
   

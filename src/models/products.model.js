@@ -4,6 +4,7 @@ const modelGetAll = async () => {
   const [results] = await connection.execute(
     'SELECT * FROM  StoreManager.products',
   );
+  console.log(results);
   return results;
 };
 

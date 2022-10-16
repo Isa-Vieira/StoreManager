@@ -12,7 +12,6 @@ const modelSalesGetAll = async () => {
   ORDER BY salesProducts.sale_id, salesProducts.product_id`,
     
   );
-  console.log(results);
   return results;
 };
 
@@ -29,7 +28,7 @@ const procuraIdSalesModel = async (id) => {
   ORDER BY salesProducts.sale_id, salesProducts.product_id`,
     [id],
   );
-  console.log(results);
+  console.log('results', results);
   return results;
 };
 module.exports = {
